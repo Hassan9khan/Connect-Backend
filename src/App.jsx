@@ -29,15 +29,17 @@ const App = () => {
         title: title.current.value,
       });
       console.log(response.data.data);
+      setData(response.data.data)
     } catch (error) {
       console.log(error);
     }
+    title.current.value = "";``
   };
 
   const deleteUser = async (id) => {
     try {
       const response = await axios.delete(`http://localhost:3000/user/${id}`);
-      console.log(response.data);
+      setData(response.data.data)
     } catch (error) {
       console.log(error);
     }
